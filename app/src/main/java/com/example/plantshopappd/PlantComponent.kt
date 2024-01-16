@@ -19,7 +19,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -48,6 +47,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -282,7 +282,8 @@ fun SearchBox() {
 private fun ThirdFlower() {
     Card(Modifier.clip(RoundedCornerShape(0.dp))) {
         Column(
-            Modifier.size(150.dp, 200.dp)
+            Modifier
+                .size(150.dp, 200.dp)
                 .background(Color(0xFF01714E))
         ) {
             Column(
@@ -308,12 +309,14 @@ private fun ThirdFlower() {
 
 @Composable
 private fun SecondFlower() {
-    Card(Modifier
-        .clip(RoundedCornerShape(0.dp))
+    Card(
+        Modifier
+            .clip(RoundedCornerShape(0.dp))
     ) {
 
         Column(
-            Modifier.size(150.dp, 200.dp)
+            Modifier
+                .size(150.dp, 200.dp)
                 .background(Color(0xFF01714E))
         ) {
             Column(
@@ -345,7 +348,8 @@ private fun FirstFlower() {
     ) {
 
         Column(
-            Modifier.size(150.dp, 200.dp)
+            Modifier
+                .size(150.dp, 200.dp)
                 .background(Color(0xFF01714E))
         ) {
             Column(
@@ -370,234 +374,48 @@ private fun FirstFlower() {
 }
 
 
+@Preview(showBackground = true)
 @Composable
 fun DetailsPage() {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
 
-    Column(Modifier.fillMaxSize()) {
-        Column(
-            Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        ) {
-            Card(Modifier.clip(RoundedCornerShape(0.dp))) {
-                Image(
-                    painter = painterResource(id = R.drawable.background_1),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillBounds
-                )
 
-                Column(
-                    Modifier
-                        .fillMaxSize()
-                        .padding(10.dp)
-                ) {
-                    ArrowBackMoreVert()
+        TopHeaderDetils()
+        Spacer(modifier = Modifier.height(10.dp))
+        RowItemDetails()
+        RowItemDetailsAnswer()
+        Spacer(modifier = Modifier.height(10.dp))
 
-                    Column(Modifier.padding(30.dp), Arrangement.Bottom) {
-                        Text(
-                            text = "Details",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.White,
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .height(30.dp)
-                .padding(start = 20.dp)
-        ) {
-
-            Text(
-                text = "Reviews",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF555555),
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-            Text(
-                text = "Family",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF555555),
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-            Text(
-                text = "Size",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF555555),
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-            Text(
-                text = "Category",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF555555),
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-        }
-
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .height(30.dp)
-                .padding(start = 20.dp)
-        ) {
-
-            Row(Modifier.weight(0.25F)) {
-                for (i in 1..5) {
-                    Icon(
-                        imageVector = Icons.Filled.Star,
-                        contentDescription = "",
-                        modifier = Modifier.size(20.dp),
-                        tint = Color(0xFFFFB42D)
-                    )
-                }
-            }
-
-            Text(
-                text = "Gimberg",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF05986A),
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-            Text(
-                text = "Height: 62 Inc",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF05986A),
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-            Text(
-                text = "Indor",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF05986A),
-                modifier = Modifier.weight(0.25F),
-                textAlign = TextAlign.Start
-            )
-
-        }
-
-        Spacer(modifier = Modifier.height(20.dp))
-
+        
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Card(
                 Modifier
-                    .height(500.dp)
+                    .height(430.dp)
                     .clip(CircleShape)
             ) {
-                Column(
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Card(
-                        Modifier
-                            .size(500.dp, 500.dp)
-                            .clip(CircleShape)
-                    ) {
-                        Column(Modifier.clip(CircleShape)) {
-                            Image(
-                                painter = painterResource(id = R.drawable.flower_5),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .size(500.dp)
-                                    .background(Color(0xFFEEEEEE)),
-                            )
-                        }
-                    }
-                }
 
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 100.dp), Alignment.BottomEnd
-                ) {
-                    Button(
-                        onClick = {},
-                        shape = RoundedCornerShape(
-                            topStart = 48.dp,
-                            bottomStart = 48.dp
-                        ),
-                        colors = ButtonDefaults.buttonColors(
-                            //backgroundColor = Color(0xFF05986A),
-                            contentColor = Color.White,
-                        ),
-                        modifier = Modifier
-                            .shadow(
-                                elevation = 5.dp,
-                                shape = RoundedCornerShape(
-                                    topStart = 48.dp,
-                                    bottomStart = 48.dp
-                                ),
-                                clip = true
-                            )
-                    ) {
-                        Text(
-                            text = "Price: $200",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(12.dp)
-                        )
-                    }
-                }
+                ImageDetail()
+                PriceTitleDetail()
             }
 
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         Column(Modifier.weight(1F)) {
-            Text(
-                text = "Details",
-                style = MaterialTheme.typography.headlineMedium,
-                color = Color(0xFF555555),
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 10.dp),
-                textAlign = TextAlign.Start
-            )
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = "A flower, sometimes known as a bloom or blossom, is the reproductive structure found in flowering plants (plants of the division Magnoliophyta, also called angiosperms).",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color(0xFF888888),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 10.dp),
-                textAlign = TextAlign.Start
-            )
+            ExplnationDetails()
         }
 
         Row(
             Modifier
-                .height(65.dp)
+                .height(55.dp)
                 .fillMaxWidth()
         ) {
             Row(
@@ -608,7 +426,11 @@ fun DetailsPage() {
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "BUY IT NOW", color = Color.White)
+                Text(
+                    text = "خرید",
+                    color = Color.White,
+                    style = MaterialTheme.typography.headlineMedium
+                )
             }
 
 
@@ -631,6 +453,214 @@ fun DetailsPage() {
             }
         }
 
+    }
+}
+
+@Composable
+private fun ExplnationDetails() {
+    Text(
+        text = "توضیحات",
+        style = MaterialTheme.typography.headlineMedium,
+        color = Color(0xFF555555),
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 10.dp),
+        textAlign = TextAlign.End
+    )
+
+    Spacer(modifier = Modifier.height(10.dp))
+
+    Text(
+        text = "بذر این گیاه برای رویش به نور نیاز دارد. این گیاه در طول رویش نیز به نور کافی نیازمند است به طوری که از مرحله تشکیل غنچه تا کامل شدن گل ها به مقادیر زیادی نور محتاج است. گیاهانی که در سایه کاشته می شوند مقادیر بسیار کم اسانس و کامازولن خواهند داشت.",
+        style = MaterialTheme.typography.titleMedium,
+        color = Color(0xFF888888),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 10.dp),
+        textAlign = TextAlign.End
+    )
+}
+
+@Composable
+private fun PriceTitleDetail() {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .padding(bottom = 10.dp, top = 10.dp),
+        Alignment.Center
+    ) {
+        Button(
+            onClick = {},
+            shape = RoundedCornerShape(
+                topStart = 48.dp,
+                topEnd = 48.dp,
+                bottomEnd = 48.dp,
+                bottomStart = 48.dp
+            ),
+            colors = ButtonDefaults.buttonColors(
+                //backgroundColor = Color(0xFF05986A),
+                contentColor = Color.White,
+            ),
+            modifier = Modifier
+                .shadow(
+                    elevation = 5.dp,
+                    shape = RoundedCornerShape(
+                        topStart = 48.dp,
+                        topEnd = 48.dp,
+                        bottomEnd = 48.dp,
+                        bottomStart = 48.dp
+                    ),
+                    clip = true
+                )
+        ) {
+            Text(
+                text = "126,000",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(6.dp)
+            )
+        }
+    }
+}
+
+@Composable
+private fun ImageDetail() {
+    Column(
+        modifier = Modifier
+            .clip(CircleShape)
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Card(
+            Modifier
+                .size(500.dp, 350.dp)
+                .clip(CircleShape)
+        ) {
+            Column(
+                Modifier.clip(CircleShape),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.flower_4),
+                    contentDescription = "",
+                    modifier = Modifier
+                        .size(500.dp, 350.dp)
+                        .background(Color(0xFFEEEEEE)),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun RowItemDetailsAnswer() {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .height(30.dp)
+            .padding(start = 10.dp)
+    ) {
+
+        Text(
+            text = "بابونه",
+            style = MaterialTheme.typography.titleLarge,
+            color = Color(0xFF05986A),
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+        Text(
+            text = "متوسط",
+            style = MaterialTheme.typography.titleLarge,
+            color = Color(0xFF05986A),
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+        Text(
+            text = "خانگی",
+            style = MaterialTheme.typography.titleLarge,
+            color = Color(0xFF05986A),
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+    }
+}
+
+@Composable
+private fun RowItemDetails() {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .height(30.dp)
+            .padding(start = 10.dp)
+    ) {
+        Text(
+            text = "نام گل",
+            style = MaterialTheme.typography.headlineSmall,
+            color = Color(0xFF555555),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+        Text(
+            text = "اندازه",
+            style = MaterialTheme.typography.headlineSmall,
+            color = Color(0xFF555555),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+        Text(
+            text = "دسته بندی",
+            style = MaterialTheme.typography.headlineSmall,
+            color = Color(0xFF555555),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.weight(0.33F),
+            textAlign = TextAlign.Center
+        )
+
+    }
+}
+
+@Composable
+private fun TopHeaderDetils() {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .height(110.dp)
+    ) {
+        Box(Modifier.clip(RoundedCornerShape(0.dp))) {
+            Image(
+                painter = painterResource(id = R.drawable.background_1),
+                contentDescription = null,
+                contentScale = ContentScale.FillBounds
+            )
+
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .padding(5.dp)
+            ) {
+                ArrowBackMoreVert()
+
+                Column(Modifier.padding(10.dp), Arrangement.Bottom) {
+                    Text(
+                        text = "مشخصات",
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = Color.White,
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
     }
 }
 
